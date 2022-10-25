@@ -12,6 +12,9 @@ Joining Policies :
 * Joining_InstallCode : To join a network with install-code
 * Joining_WellKnownKey : Join with the well-known key "ZigbeeAlliance09"
 
+Messaging :
+* Multicast_SwitchLight : Project to send multicast message to a specific Group
+
 ## 3. Structure of Projects
 You can see in all the projects the following structures : 
 * Src : Source code files used for the project
