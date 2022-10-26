@@ -14,6 +14,7 @@ To connect to a network, you can use either the well-known key which is "ZigbeeA
 
 **TC Policies** :
 * TC_GlobalLinkKey : Use a global TC link key for all nodes 
+* TC_HashedLinkKey : Use a hashed TC link key, so each node as a different key to communicate end-to-end with the TC
 
 **Messaging** :
 * Multicast_SwitchLight : Project to send multicast message to a specific Group
