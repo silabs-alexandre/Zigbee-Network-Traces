@@ -33,7 +33,7 @@ It is possible to see in the traces that we have two keys that are different for
 ![alt text](doc/RouterLinkKeyPacket.PNG "Router Transport Link Key")
 
 **For the SED** : 
-![alt text](doc/SEDLinkKeyPacket.PNG "SED Transport Link Key")
+![alt text](doc/SedLinkKeyPacket.PNG "SED Transport Link Key")
 
 In order to check that the key are the Trust key hashed by the EUI64 of the node, you can use the tool Calculate HMAC present in the Preferences window > Network Analyzer > Decoding > Security keys. 
 
