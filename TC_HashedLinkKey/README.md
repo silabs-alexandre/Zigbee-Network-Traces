@@ -16,9 +16,9 @@ Gecko SDK Suite 4.1.0 or later
 Connect the radio boards to the WSTK mainboards. Connect your desired gateway device via serial connection to a computer. 
 
 ## 5. Running the Applications
-Build and flash the globalTCLink_CO application to one board (coordinator).
-Build and flash the globalTCLink_Ro application to another one (Router).
-Build and flash the globalTCLink_SED application to the last one (SED).
+Build and flash the hashedTCLink_CO application to one board (coordinator).
+Build and flash the hashedTCLink_Ro application to another one (Router).
+Build and flash the hashedTCLink_SED application to the last one (SED).
 
 ## Using the Application
 * Form the network on the coordinator by sending **form** through the serial.
