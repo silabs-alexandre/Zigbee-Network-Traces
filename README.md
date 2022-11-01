@@ -17,6 +17,9 @@ To connect to a network, you can use either the well-known key which is "ZigbeeA
 * TC_HashedLinkKey : Use a global TC Link key which is hashed by the eui64 of each node
 * TC_UniqueLinkKey : Use a random unique TC link key for each node joining the network
 
+**App Link Keys**
+* appLinkKey : Use a unique APP Link key to secure communication between 2 nodes on a network
+
 **Messaging** :
 * Multicast_SwitchLight : Project to send multicast message to a specific Group
 
