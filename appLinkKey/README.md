@@ -39,7 +39,7 @@ emberAfAddToCurrentAppTasks(currentTask);
 emberAfSetWakeTimeoutBitmaskCallback(currentTask); 
 ```
 ## Interpretation
-After doing the whole process, it is possible to see that all APP Link keys are stored into the link key table of the 2 nodes involved in the end-to-end communication with this key.
+After doing the whole process, it is possible to see that all APP Link keys are stored into the link key table of the 2 nodes involved in the end-to-end communication with this key.\
 ![alt text](doc/keysPrintRouter.PNG "Keys Print Router")
 ![alt text](doc/keysPrintSED.PNG "Keys Print SED")
 
