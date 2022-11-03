@@ -5,7 +5,7 @@
 ![SDK badge](https://img.shields.io/badge/SDK-v4.1.0-green)
  
 ## 1. Summary
-To connect to a network, you can use either the well-known key which is "ZigbeeAlliance09" or install-code, there is also the touchlink commissionning. When a device is joining with the well-known key, the TC is then sending the NWK key encrypted with the well-known link key. 
+This repository provides projects and network traces about basic network Policies on Zigbee. 
 
 ## 2. List of Projects
 **Joining Policies** : 
