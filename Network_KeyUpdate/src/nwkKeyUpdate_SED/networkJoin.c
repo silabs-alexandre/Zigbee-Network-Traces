@@ -58,7 +58,7 @@ sl_cli_command_group_t my_cli_command_group = {
  * CLI Handler to join a network with join command
  * @param arguments
  */
-void myJoinHandler(sl_cli_argument_type_t *arguments)
+void myJoinHandler(sl_cli_command_arg_t *arguments)
 {
   // Launch the join process
   EmberStatus status;

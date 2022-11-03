@@ -12,6 +12,9 @@ To connect to a network, you can use either the well-known key which is "ZigbeeA
 * Joining_InstallCode : To join a network with install-code
 * Joining_WellKnownKey : Join with the well-known key "ZigbeeAlliance09"
 
+**Rejoining Policies** :
+* Secured_Rejoining : Secured Rejoining of a SED aged out of the child table of the parent
+
 **TC Policies** :
 * TC_GlobalLinkKey : Use a global TC link key for all nodes 
 * TC_HashedLinkKey : Use a global TC Link key which is hashed by the eui64 of each node

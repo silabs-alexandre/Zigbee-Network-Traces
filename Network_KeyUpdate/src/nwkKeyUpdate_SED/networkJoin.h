@@ -36,7 +36,7 @@
  * Function Prototypes
  ******************************************************************************/
 
-void myJoinHandler(sl_cli_argument_type_t *arguments);
+void myJoinHandler(sl_cli_command_arg_t *arguments);
 void myEventRouterInfoHandler(sl_zigbee_event_context_t *context);
 
 /***************************************************************************//**

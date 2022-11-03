@@ -1,6 +1,6 @@
 /***************************************************************************//**
- * @file my_networkJoin.h
- * @brief File with Events and Function to create & open the network.
+ * @file networkCreation.h
+ * @brief Header file
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -15,8 +15,8 @@
  *
  ******************************************************************************/
 
-#ifndef NETWORKJOIN_H_
-#define NETWORKJOIN_H_
+#ifndef NETWORKCREATION_H_
+#define NETWORKCREATION_H_
 
 /***************************************************************************//**
  * INCLUDES & DEFINES
@@ -24,28 +24,24 @@
 
 #include "sl_cli_types.h"
 #include "app/framework/include/af.h"
+#include "network-creator-security.h"
+#include "network-creator.h"
 #include "stdbool.h"
 #include "ember-types.h"
 #include "sl_cli_handles.h"
 #include "af-security.h"
-#include "network-steering.h"
-
-#define INFO_DELAY_MS 1000
 
 /***************************************************************************//**
  * Function Prototypes
  ******************************************************************************/
 
-void myJoinHandler(sl_cli_command_arg_t *arguments);
-void myEventRouterInfoHandler(sl_zigbee_event_context_t *context);
+void networkOpenHandler(sl_cli_command_arg_t *arguments);
+void eventNetworkFormHandler(sl_cli_command_arg_t *arguments);
 
 /***************************************************************************//**
  * Variables
  ******************************************************************************/
 
-extern sl_zigbee_event_t eventRouterInfoCtrl;
 extern sl_cli_command_group_t my_cli_command_group;
 
-
-
-#endif /* NETWORKJOIN_H_ */
+#endif /* NETWORKCREATION_H_ */

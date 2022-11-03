@@ -19,7 +19,7 @@
  * DESCRIPTION OF THE FILE
  *  This file grants you a set of custom CLI commands to join a network
  *    - join : Launch Network Steering process to join the network
- *
+ *  A rejoin process is launched 20 seconds after joining a network
  *  HOW TO USE :
  *    Include the header file in your app.c
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
@@ -34,6 +34,7 @@
 #include "networkJoin.h"
 
 sl_zigbee_event_t eventRouterInfoCtrl;
+sl_zigbee_event_t eventRejoinCtrl;
 
 static const sl_cli_command_info_t myJoinCommand =
        SL_CLI_COMMAND(myJoinHandler,
@@ -72,6 +73,25 @@ void myJoinHandler(sl_cli_command_arg_t *arguments)
   else
   {
       emberAfCorePrintln("ERROR to start Network Steering");
+  }
+}
+
+/**
+ * Event handler to launch the rejoin process 15 seconds after joining a network
+ * @param arguments
+ */
+void myEventRejoinHandler(sl_zigbee_event_context_t *context)
+{
+  EmberStatus status;
+
+  status = emberRejoinNetwork(true); // true = Secured Rejoining
+  if(status == EMBER_SUCCESS)
+  {
+      emberAfCorePrintln("Succeeded to launch Secured Rejoining");
+  }
+  else
+  {
+      emberAfCorePrintln("Failed to launch Secured Rejoining");
   }
 }
 
