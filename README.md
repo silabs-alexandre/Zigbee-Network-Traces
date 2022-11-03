@@ -14,6 +14,7 @@ To connect to a network, you can use either the well-known key which is "ZigbeeA
 
 **Rejoining Policies** :
 * Secured_Rejoining : Secured Rejoining of a SED aged out of the child table of the parent
+* **UN**Secured_Rejoining : Unsecured rejoining of a SED which missed a NWK Key update
 
 **TC Policies** :
 * TC_GlobalLinkKey : Use a global TC link key for all nodes 

@@ -48,5 +48,5 @@ This directory also contains trace captures on Network Analyzer and Wireshark di
 * trace_app_link_key.isd : Capture for NA
 * trace_app_link_key.pcapng : Capture for Wireshark   
 
-To get more informations : [AN1233: Zigbee Security](https://www.silabs.com/documents/public/application-notes/an1233-zigbee-security.pdf)
+To get more informations : [AN1233: Zigbee Security](https://www.silabs.com/documents/public/application-notes/an1233-zigbee-security.pdf)\
 [UG391: Zigbee Application Framework dev guide](https://www.silabs.com/documents/public/user-guides/ug391-zigbee-app-framework-dev-guide.pdf)

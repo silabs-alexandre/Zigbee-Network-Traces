@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file networkGroupRO.c
+ * @file ledCtrlRO.c
  * @brief File to create a group and send Multicast Message.
  *******************************************************************************
  * # License

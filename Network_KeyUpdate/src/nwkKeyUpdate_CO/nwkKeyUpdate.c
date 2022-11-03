@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file networkCreation.c
+ * @file nwkKeyUpdate.c
  * @brief File with Events and Function to create & open the network.
  *******************************************************************************
  * # License
@@ -19,6 +19,7 @@
  * DESCRIPTION OF THE FILE
  *  This file grants you a set of custom CLI commands to update the NWK key of
  *  the current network.
+ *     - updateNwk : Start Update Network Key
  *
  *  HOW TO USE :
  *    Include this file and corresponding header files

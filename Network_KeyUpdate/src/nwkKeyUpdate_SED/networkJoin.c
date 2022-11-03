@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file my_networkJoin.c
+ * @file networkJoin.c
  * @brief File with Events and Function to create & open the network.
  *******************************************************************************
  * # License

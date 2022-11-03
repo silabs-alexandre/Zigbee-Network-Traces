@@ -136,7 +136,7 @@ void networkOpenHandler(sl_cli_command_arg_t *arguments)
   EmberStatus status;
   EmberNetworkStatus state;
 
-  emberAfCorePrintln("Open Network with Install Code");
+  emberAfCorePrintln("Open Network with well-known key");
   state = emberAfNetworkState();
 
   // Check if Network Created

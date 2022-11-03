@@ -21,7 +21,7 @@
  *  open it to join with well-known key
  *    - form : Create the Network
  *    - open : Open the Network
- *
+ * 
  *  HOW TO USE :
  *    Include this file and corresponding header files
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
