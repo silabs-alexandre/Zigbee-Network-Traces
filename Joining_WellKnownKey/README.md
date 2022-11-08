@@ -31,4 +31,9 @@ This directory also contains trace captures on Network Analyzer and Wireshark di
 * trace_joining_well_known_key_.isd : Capture for NA
 * trace_joining_well_known_key.pcapng : Capture for Wireshark   
 
+**To use Wireshark Capture**
+You need to add the well-known key to your wireshark keys to decode packets.\
+Go to : [Edit -> Preferences -> Protocols -> ZigBee -> Edit] and add :
+**5A:69:67:42:65:65:41:6C:6C:69:61:6E:63:65:30:39** as the well-known key\
+
 To get more informations : [AN1233: Zigbee Security](https://www.silabs.com/documents/public/application-notes/an1233-zigbee-security.pdf)

@@ -39,8 +39,9 @@ This directory also contains trace captures on Network Analyzer and Wireshark di
 * trace_joining_router_sed.pcapng : Capture for Wireshark   
 
 **To use Wireshark Capture**
-You need to add the derived link key of the install-code to your wireshark keys for zigbee protocol.\
-Go to : [Edit -> Preferences -> Protocols -> ZigBee -> Edit] and add the following key : 
-**66:B6:90:09:81:E1:EE:3C:A4:20:6B:6B:86:1C:02:BB**
+You need to add the derived link key of the install-code and the well-known key to your wireshark keys to decode packets.\
+Go to : [Edit -> Preferences -> Protocols -> ZigBee -> Edit] and add :
+**5A:69:67:42:65:65:41:6C:6C:69:61:6E:63:65:30:39** as the well-known key\
+**66:B6:90:09:81:E1:EE:3C:A4:20:6B:6B:86:1C:02:BB** as the derived key
 
 To get more informations : [AN1089: Using Installation Codes with Zigbee Devices](https://www.silabs.com/documents/public/application-notes/an1089-using-installation-codes-with-zigbee-devices.pdf)

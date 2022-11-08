@@ -32,3 +32,13 @@ GROUP_ID = 0x4123  & Group_Name = "Lights"
 
 * Now, send **group** on the coordinator to send a command to the 2 other devices which joined.
 * Then, you can now press the BTN0 on the switch to change the state of the LED 0. 
+
+## 6. Traces & other documents
+This directory also contains trace captures on Network Analyzer and Wireshark directly in the repositories
+* multicast_process_trace.isd : Capture for NA
+* multicast_process_trace.pcapng : Capture for Wireshark   
+
+**To use Wireshark Capture**
+You need to add the well-known key to your wireshark keys to decode packets.\
+Go to : [Edit -> Preferences -> Protocols -> ZigBee -> Edit] and add :
+**5A:69:67:42:65:65:41:6C:6C:69:61:6E:63:65:30:39** as the well-known key\
