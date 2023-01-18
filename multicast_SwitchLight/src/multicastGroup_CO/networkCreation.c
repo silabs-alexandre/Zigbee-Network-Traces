@@ -26,7 +26,7 @@
  *    Include this file and corresponding header files
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
  *    the command group : my_cli_command_group, and events
- *    (look at the app.c of this project)
+ *    (refer to app.c of this project as an example)
  ******************************************************************************/
 
 /***************************************************************************//**

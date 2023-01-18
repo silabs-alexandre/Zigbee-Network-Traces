@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file networkJoin.h
- * @brief File with Events and Function to create & open the network.
+ * @brief Header file.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>

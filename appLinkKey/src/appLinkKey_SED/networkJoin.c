@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file networkJoin.c
- * @brief File with Events and Function to create & open the network.
+ * @brief File with Events and functions to join a network.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -24,7 +24,7 @@
  *    Include the header file in your app.c
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
  *    the command group : my_cli_command_group, and events if necessary
- *    (look at the app.c of this project for an example)
+ *    (refer to app.c of this project as an example)
  ******************************************************************************/
 
 /***************************************************************************//**
@@ -36,19 +36,20 @@
 sl_zigbee_event_t eventRouterInfoCtrl;
 
 static const sl_cli_command_info_t myJoinCommand =
-       SL_CLI_COMMAND(myJoinHandler,
-                      "Function to join the network with install-code",
-                      "None",
-                      {SL_CLI_ARG_END});
-const sl_cli_command_entry_t my_cli_commands[] = {
-    {"join", &myJoinCommand, false},
-    {NULL, NULL, false},
+  SL_CLI_COMMAND(myJoinHandler,
+                 "Function to join the network with install-code",
+                 "None",
+                 {SL_CLI_ARG_END});
+                 
+static const sl_cli_command_entry_t my_cli_commands[] = {
+  {"join", &myJoinCommand, false},
+  {NULL, NULL, false},
 };
 
 sl_cli_command_group_t my_cli_command_group = {
-    {NULL},
-    false,
-    my_cli_commands
+  {NULL},
+  false,
+  my_cli_commands
 };
 /***************************************************************************//**
  * Functions & events.
@@ -58,7 +59,7 @@ sl_cli_command_group_t my_cli_command_group = {
  * CLI Handler to join a network with join command
  * @param arguments
  */
-void myJoinHandler(sl_cli_argument_type_t *arguments)
+void myJoinHandler(sl_cli_command_arg_t *arguments)
 {
   // Launch the join process
   EmberStatus status;
@@ -67,11 +68,11 @@ void myJoinHandler(sl_cli_argument_type_t *arguments)
   // Check the status of the network Steering
   if (status == EMBER_SUCCESS)
   {
-      emberAfCorePrintln("Start of Network Steering successful");
+    emberAfCorePrintln("Start of Network Steering successful");
   }
   else
   {
-      emberAfCorePrintln("ERROR to start Network Steering");
+    emberAfCorePrintln("ERROR to start Network Steering");
   }
 }
 

@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file networkRejoin.c
- * @brief File with Events and Function to create & open the network.
+ * @brief File with Events and Function to rejoin a network.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -17,14 +17,14 @@
 
 /***************************************************************************//**
  * DESCRIPTION OF THE FILE
- *  This file grants you a set of custom CLI commands to join a network
+ *  This file grants you a set of custom CLI commands to rejoin a network
  *    - rejoin : Launch the rejoin process
  *
  *  HOW TO USE :
  *    Include the header file in your app.c
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
  *    the command group : my_rejoin_command_group, and events if necessary
- *    (look at the app.c of this project for an example)
+ *    (refer to app.c of this project as an example)
  ******************************************************************************/
 
 /***************************************************************************//**
@@ -34,27 +34,30 @@
 #include "networkRejoin.h"
 
 static const sl_cli_command_info_t myRejoinCommand =
-       SL_CLI_COMMAND(myRejoinHandler,
-                      "Function to rejoin the network",
-                      "None",
-                      {SL_CLI_ARG_END});
+  SL_CLI_COMMAND(myRejoinHandler,
+                 "Function to rejoin the network",
+                 "None",
+                 {SL_CLI_ARG_END});
+                
 static const sl_cli_command_entry_t my_cli_commands[] = {
-    {"rejoin", &myRejoinCommand, false},
-    {NULL, NULL, false},
+  {"rejoin", &myRejoinCommand, false},
+  {NULL, NULL, false},
 };
 
 sl_cli_command_group_t my_rejoin_command_group = {
-    {NULL},
-    false,
-    my_cli_commands
+  {NULL},
+  false,
+  my_cli_commands
 };
+
 /***************************************************************************//**
  * Functions & events.
  ******************************************************************************/
 
 /**
- * CLI Handler to rejoin a network with join command
- * @param arguments
+ * @brief CLI Handler to rejoin a network with join command
+ * 
+ * @param arguments CLI arguments after the rejoin
  */
 void myRejoinHandler(sl_cli_command_arg_t *arguments)
 {
@@ -63,12 +66,9 @@ void myRejoinHandler(sl_cli_command_arg_t *arguments)
   status = emberRejoinNetwork(false);
 
   // Check the status of the network Steering
-  if (status == EMBER_SUCCESS)
-  {
-      emberAfCorePrintln("Start of Network Steering successful");
-  }
-  else
-  {
-      emberAfCorePrintln("ERROR to start Network Steering");
+  if (status == EMBER_SUCCESS) {
+    emberAfCorePrintln("Start of Network Steering successful");
+  } else {
+    emberAfCorePrintln("ERROR to start Network Steering");
   }
 }

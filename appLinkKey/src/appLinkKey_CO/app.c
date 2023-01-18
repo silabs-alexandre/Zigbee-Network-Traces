@@ -43,17 +43,16 @@ void emberAfPluginNetworkSteeringCompleteCallback(EmberStatus status,
   sl_zigbee_app_debug_print("%s network %s: 0x%02X\n", "Join", "complete", status);
 }
 
-/** @brief
- *
- * Application framework equivalent of ::emberRadioNeedsCalibratingHandler
+/**
+ * @brief Application framework equivalent of ::emberRadioNeedsCalibratingHandler
  */
 void emberAfRadioNeedsCalibratingCallback(void)
 {
   sl_mac_calibrate_current_channel();
 }
 
-/** @brief
- * Main Function Callback
+/**
+ * @brief Main Initialization callback
  */
 void emberAfMainInitCallback(void)
 {

@@ -53,9 +53,7 @@ void emberAfRadioNeedsCalibratingCallback(void)
 }
 
 /**
- * Main Callback called after initialization of the stack
- * WARNING : All the stack is not completely initialized
- *           You must wait set event after a little delay
+ * @brief Main Initialization Callback.
  */
 void emberAfMainInitCallback(void)
 {

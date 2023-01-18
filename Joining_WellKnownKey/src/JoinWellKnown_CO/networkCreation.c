@@ -26,7 +26,7 @@
  *    Include this file and corresponding header files
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
  *    the command group : my_cli_command_group, and events
- *    (look at the app.c of this project)
+ *    (refer to app.c of this project as an example)
  ******************************************************************************/
 
 /***************************************************************************//**
@@ -40,26 +40,27 @@ sl_zigbee_event_t networkOpenCtrl;
 static EmberNodeId nodeTable[3] = {0};
 static int currentIndex = 0;
 
-// Create the CLI_Command_info
+/// Create the CLI_Command_info
 static const sl_cli_command_info_t myFormCreate_command =
-    SL_CLI_COMMAND(eventNetworkFormHandler,
-                   "Form and Create custom Network",
-                   "No argument",
-                   {SL_CLI_ARG_END, });
-static const sl_cli_command_info_t myOpen_command =
-    SL_CLI_COMMAND(networkOpenHandler,
-                   "Open the network with well-known key",
-                   "No Argument",
-                   {SL_CLI_ARG_END, });
+  SL_CLI_COMMAND(eventNetworkFormHandler,
+                 "Form and Create custom Network",
+                 "No argument",
+                 {SL_CLI_ARG_END, });
 
-// Create the entries
+static const sl_cli_command_info_t myOpen_command =
+  SL_CLI_COMMAND(networkOpenHandler,
+                 "Open the network with well-known key",
+                 "No Argument",
+                 {SL_CLI_ARG_END, });
+
+/// Create the entries
 const sl_cli_command_entry_t my_cli_commands[] = {
-    {"form", &myFormCreate_command, false},
-    {"open", &myOpen_command, false},
-    {NULL, NULL, false},
+  {"form", &myFormCreate_command, false},
+  {"open", &myOpen_command, false},
+  {NULL, NULL, false},
 };
 
-// Create the group of entries
+/// Create the group of entries
 sl_cli_command_group_t my_cli_command_group = {
     {NULL},
     false,
@@ -71,9 +72,10 @@ sl_cli_command_group_t my_cli_command_group = {
  ******************************************************************************/
 
 /**
- * Callback when Network Creator is completed
- * @param network
- * @param usedSecondaryChannels
+ * @brief Callback when Network Creator is completed
+ *
+ * @param network Network Parameters
+ * @param usedSecondaryChannels Flag indicating use of Secondary channels
  */
 void emberAfPluginNetworkCreatorCompleteCallback(const EmberNetworkParameters *network,
                                                  bool usedSecondaryChannels)
@@ -103,8 +105,9 @@ void emberAfTrustCenterJoinCallback(EmberNodeId newNodeId,
 }
 
 /**
- * CLI Function to form the network when : form
- * @param arguments
+ * @brief CLI Function to form the network when : form
+ *
+ * @param arguments CLI arguments after form
  */
 void eventNetworkFormHandler(sl_cli_command_arg_t *arguments)
 {
@@ -116,20 +119,18 @@ void eventNetworkFormHandler(sl_cli_command_arg_t *arguments)
   // Network Creation
   state = emberAfNetworkState();
 
-  if (state != EMBER_JOINED_NETWORK)
-  {
-      status = emberAfPluginNetworkCreatorStart(true);
-      emberAfCorePrintln("%p network %p: 0x%X", "Form", "start", status);
-  }
-  else
-  {
-      emberAfCorePrintln("Network already created");
+  if (state != EMBER_JOINED_NETWORK) {
+    status = emberAfPluginNetworkCreatorStart(true);
+    emberAfCorePrintln("%p network %p: 0x%X", "Form", "start", status);
+  } else {
+    emberAfCorePrintln("Network already created");
   }
 }
 
 /**
- * CLI Function to open the network with to join with well-known key
- * @param arguments
+ * @brief CLI Function to open the network with to join with well-known key
+ *
+ * @param arguments CLI arguments when Network open
  */
 void networkOpenHandler(sl_cli_command_arg_t *arguments)
 {
@@ -140,14 +141,11 @@ void networkOpenHandler(sl_cli_command_arg_t *arguments)
   state = emberAfNetworkState();
 
   // Check if Network Created
-  if (state != EMBER_JOINED_NETWORK)
-  {
-      emberAfCorePrintln("Network not Joined, cannot open the network");
-  }
-  else
-  {
-      emberAfCorePrintln("Network UP, opening process launched");
-      status = emberAfPluginNetworkCreatorSecurityOpenNetwork();
-      emberAfCorePrintln("Network Open with Key : 0x%X", status);
+  if (state != EMBER_JOINED_NETWORK){
+    emberAfCorePrintln("Network not Joined, cannot open the network");
+  } else {
+    emberAfCorePrintln("Network UP, opening process launched");
+    status = emberAfPluginNetworkCreatorSecurityOpenNetwork();
+    emberAfCorePrintln("Network Open with Key : 0x%X", status);
   }
 }

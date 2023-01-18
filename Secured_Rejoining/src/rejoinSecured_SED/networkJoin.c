@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file networkJoin.c
- * @brief File with Events and Function to create & open the network.
+ * @brief File with Events and Function to join and rejoin a network.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -24,7 +24,7 @@
  *    Include the header file in your app.c
  *    Create the emberAfMainInitCallback() into the app.c file and initialize
  *    the command group : my_cli_command_group, and events if necessary
- *    (look at the app.c of this project for an example)
+ *    (refer to app.c of this project as an example)
  ******************************************************************************/
 
 /***************************************************************************//**
@@ -37,20 +37,22 @@ sl_zigbee_event_t eventRouterInfoCtrl;
 sl_zigbee_event_t eventRejoinCtrl;
 
 static const sl_cli_command_info_t myJoinCommand =
-       SL_CLI_COMMAND(myJoinHandler,
-                      "Function to join the network",
-                      "None",
-                      {SL_CLI_ARG_END});
-const sl_cli_command_entry_t my_cli_commands[] = {
-    {"join", &myJoinCommand, false},
-    {NULL, NULL, false},
+  SL_CLI_COMMAND(myJoinHandler,
+                "Function to join the network",
+                "None",
+                {SL_CLI_ARG_END});
+
+static const sl_cli_command_entry_t my_cli_commands[] = {
+  {"join", &myJoinCommand, false},
+  {NULL, NULL, false},
 };
 
 sl_cli_command_group_t my_cli_command_group = {
-    {NULL},
-    false,
-    my_cli_commands
+  {NULL},
+  false,
+  my_cli_commands
 };
+
 /***************************************************************************//**
  * Functions & events.
  ******************************************************************************/
@@ -66,38 +68,34 @@ void myJoinHandler(sl_cli_command_arg_t *arguments)
   status = emberAfPluginNetworkSteeringStart();
 
   // Check the status of the network Steering
-  if (status == EMBER_SUCCESS)
-  {
-      emberAfCorePrintln("Start of Network Steering successful");
-  }
-  else
-  {
-      emberAfCorePrintln("ERROR to start Network Steering");
+  if (status == EMBER_SUCCESS) {
+    emberAfCorePrintln("Start of Network Steering successful");
+  } else {
+    emberAfCorePrintln("ERROR to start Network Steering");
   }
 }
 
 /**
- * Event handler to launch the rejoin process 15 seconds after joining a network
- * @param arguments
+ * @brief Event handler to launch the rejoin process 15 seconds after joining a network
+ * 
+ * @param arguments CLI Arguments after rejoin
  */
 void myEventRejoinHandler(sl_zigbee_event_context_t *context)
 {
   EmberStatus status;
 
   status = emberRejoinNetwork(true); // true = Secured Rejoining
-  if(status == EMBER_SUCCESS)
-  {
-      emberAfCorePrintln("Succeeded to launch Secured Rejoining");
-  }
-  else
-  {
-      emberAfCorePrintln("Failed to launch Secured Rejoining");
+  if(status == EMBER_SUCCESS) {
+    emberAfCorePrintln("Succeeded to launch Secured Rejoining");
+  } else {
+    emberAfCorePrintln("Failed to launch Secured Rejoining");
   }
 }
 
 /**
- * Event to print info of the router
- * @param context
+ * @brief Event to print info of the router
+ * 
+ * @param context Context of the Handler
  */
 void myEventRouterInfoHandler(sl_zigbee_event_context_t *context)
 {
